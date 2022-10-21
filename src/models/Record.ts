@@ -6,20 +6,27 @@
     notes(nejake poznamky nasho uzivatela napriklad "Dnes bol celkom v pohode den , mal som sa dobre , urobil som vsetko co som mal az na par veci 🙁")
 
     addNote() - urobi poznamku k danemu DayRecordu do noveho riadku */
+import { getCurrentDay } from "../utils/getCurrentDay";
 
 export class DayRecord {
   protected ID: number;
-  protected Date: any;
+  protected Date: any = getCurrentDay();
   protected title: string;
   protected notes: string;
 
-  constructor(ID: number, Date: any, title: string, notes: string) {
+  constructor(ID: number, title: string, notes: string) {
     this.ID = ID;
-    this.Date = Date;
     this.title = title;
     this.notes = notes;
   }
+  getDate() {
+    return this.Date;
+  }
+  getNotes() {
+    return this.notes;
+  }
+  //+ note in next row
+  addNote(note: string) {
+    this.notes += "\n" + `${note}`;
+  }
 }
-
-let now = new Date();
-console.log(now.toLocaleDateString());
