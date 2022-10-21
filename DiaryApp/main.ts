@@ -12,3 +12,4 @@ diary.addDayRecord(r2);
 diary.addDayRecord(r3);
 
 diary.save();
+diary.load();

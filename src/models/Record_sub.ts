@@ -10,14 +10,20 @@ import { getCurrentDay } from "../utils/getCurrentDay";
 
 export class DayRecord {
   protected ID: number;
-  protected Date: any = getCurrentDay();
   protected title: string;
   protected notes: string;
+  protected Date: string;
 
-  constructor(ID: number, title: string, notes: string) {
+  constructor(
+    ID: number,
+    title: string,
+    notes: string,
+    Date: string = getCurrentDay()
+  ) {
     this.ID = ID;
     this.title = title;
     this.notes = notes;
+    this.Date = Date;
   }
   getDate(): any {
     return this.Date;

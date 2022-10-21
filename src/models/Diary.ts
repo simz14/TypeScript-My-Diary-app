@@ -4,7 +4,7 @@
 
     /Metody/
         load - nacitanie vsetkych zaznamov z Textoveho suboru do listu
-        save - ulozenie existujucich zaznamov z listu do textoveho suboru
+        save - ulozenie existujucich zaznamov z listu do textoveho suboru✅
                 |-> tieto 2 metody budu klucove k tomu aby sme sa vedeli k nasim datam dostat aj po vypnuti programu
 
         addDayRecord - ulozenie si zaznamu do dennika ✅
@@ -56,5 +56,25 @@ export class Diary {
       saver += `${record.getID()},${record.getDate()},${record.getTitle()},${record.getNotes()}/`;
     });
     fs.writeFileSync("Diary.txt", saver);
+  }
+  load() {
+    const fs = require("fs");
+    let content = fs.readFileSync("Diary.txt", "utf8");
+    let splittedCByLine: string[] = content.split("/");
+    let splittedByComma: string[][] = [];
+
+    for (let i = 0; i < splittedCByLine.length - 1; i++) {
+      splittedByComma.push(splittedCByLine[i].split(","));
+    }
+
+    let list = this.list;
+    let load = new Map();
+    splittedByComma.map(function (data: any) {
+      load.set("ID", data[0]);
+      load.set("Date", data[1]);
+      load.set("Title", data[2]);
+      load.set("Notes", data[3]);
+    });
+    console.log(list);
   }
 }
