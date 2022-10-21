@@ -30,7 +30,7 @@
 
  */
 
-import { DayRecord } from "./Record";
+import { DayRecord } from "./Record_sub";
 
 export class Diary {
   protected list: DayRecord[] = [];
@@ -48,5 +48,13 @@ export class Diary {
         record.setNotes(rewrite);
       }
     });
+  }
+  save(list: DayRecord[] = this.list) {
+    let saver: string = "";
+    const fs = require("fs");
+    list.map(function (record: DayRecord) {
+      saver += `${record.getID()},${record.getDate()},${record.getTitle()},${record.getNotes()}/`;
+    });
+    fs.writeFileSync("Diary.txt", saver);
   }
 }

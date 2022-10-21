@@ -19,17 +19,20 @@ export class DayRecord {
     this.title = title;
     this.notes = notes;
   }
-  getDate() {
+  getDate(): any {
     return this.Date;
   }
-  getNotes() {
+  getNotes(): string {
     return this.notes;
   }
   setNotes(str: string) {
     this.notes = str;
   }
-  getID() {
+  getID(): number {
     return this.ID;
+  }
+  getTitle(): string {
+    return this.title;
   }
   //+ note in next row
   addNote(note: string) {
