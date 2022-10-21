@@ -9,25 +9,36 @@ export function getRecordTabel(
   let separator: string = "|---------------------------------------|";
   let lastRow: string = "<3--------------------------------------<3 ";
 
-  //THIS IS ID ROW
   let space: string = " ";
   let fullLength: number = starter.length;
   //console.log(fullLength);
 
-  let IDRow: any = `| ID/${ID}`;
-  let IDRowLength: number = IDRow.length;
+  function getRow(rowTopic: string) {
+    let Row: string = `| ${rowTopic}`;
+    let RowLength: number = Row.length;
 
-  let spacesForId: string = "";
-  let spacesLength: any = fullLength - IDRowLength - 1;
-  for (let i = 0; i < spacesLength; i++) {
-    spacesForId += space;
+    let result: string = ``;
+
+    if (RowLength < fullLength) {
+      let spacesForRow: string = "";
+      let spacesLength: any = fullLength - RowLength - 1;
+      for (let i = 0; i < spacesLength; i++) {
+        spacesForRow += space;
+      }
+      result = `${Row}${spacesForRow}|`;
+    } else {
+    }
+    console.log(result);
   }
 
   console.log(starter);
-
-  console.log(`${IDRow}${spacesForId}|`);
+  getRow(`${ID}`);
   console.log(separator);
-
+  getRow(`${Date}`);
+  console.log(separator);
+  getRow(`${title}`);
+  console.log(separator);
+  getRow(`${notes}`);
   console.log(lastRow);
 }
 
@@ -48,4 +59,9 @@ export function getRecordTabel(
         <3--------------------------------------<3 
 */
 
-getRecordTabel(3, "11.11", "Hello", "vnfu diyl");
+getRecordTabel(
+  3,
+  "11.11",
+  "Hello",
+  "vnfu diy nfejskabc iejhvreihlnvji rvhbreilg bhil vhrueibv iwbvijreqn jvibetow ihbtielnfjrwkôa gu"
+);
