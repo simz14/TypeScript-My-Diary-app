@@ -25,6 +25,12 @@ export class DayRecord {
   getNotes() {
     return this.notes;
   }
+  setNotes(str: string) {
+    this.notes = str;
+  }
+  getID() {
+    return this.ID;
+  }
   //+ note in next row
   addNote(note: string) {
     this.notes += "\n" + `${note}`;

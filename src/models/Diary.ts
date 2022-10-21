@@ -8,8 +8,8 @@
                 |-> tieto 2 metody budu klucove k tomu aby sme sa vedeli k nasim datam dostat aj po vypnuti programu
 
         addDayRecord - ulozenie si zaznamu do dennika ✅
-        removeDayRecord - vymazanie zaznamu z dennika
-        rewriteDayRecord - prepisanie daneho zaznamu v denniku (prepise poznamky z daneho zaznamu)
+        removeDayRecord - vymazanie zaznamu z dennika✅
+        rewriteDayRecord - prepisanie daneho zaznamu v denniku (prepise poznamky z daneho zaznamu)✅
         getDayRecord - vrati dany zaznam z denniku na zaklade IDcka ktore tam vlozime ,OUTPUT bude vyzerat takto
 
         8---------------------------------------8
@@ -41,5 +41,12 @@ export class Diary {
   }
   removeDayRecord(remove: DayRecord) {
     this.list = this.list.filter((record) => record !== remove);
+  }
+  rewriteDayRecord(recordID: number, rewrite: string) {
+    this.list.map(function (record: DayRecord) {
+      if (record.getID() === recordID) {
+        record.setNotes(rewrite);
+      }
+    });
   }
 }
