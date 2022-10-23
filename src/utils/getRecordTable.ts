@@ -1,6 +1,6 @@
 import { loadavg } from "os";
 
-export function getRecordTabel(
+export function getRecordTable(
   ID: number,
   Date: any,
   title: string,
@@ -99,10 +99,3 @@ export function getRecordTabel(
         |    poznamky z daneho dna blablablab   |
         <3--------------------------------------<3 
 */
-
-getRecordTabel(
-  3,
-  "11.11",
-  "Hello",
-  "hfdlg hjghrjlea .hfejak. hbjgrke. arhial-hrjia-jg -hila-jrkhkuegrkagjhwa.hfuw hgirehail.ysjoehfi hiťšoôsupesuérep§eoťjžťjop§ n iô-"
-);

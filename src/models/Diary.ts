@@ -55,11 +55,11 @@ export class Diary {
     list.map(function (record: DayRecord) {
       saver += `${record.getID()},${record.getDate()},${record.getTitle()},${record.getNotes()}/`;
     });
-    fs.writeFileSync("Diary.txt", saver);
+    fs.writeFileSync("src/data/Diary.txt", saver);
   }
   load() {
     const fs = require("fs");
-    let content = fs.readFileSync("Diary.txt", "utf8");
+    let content = fs.readFileSync("src/data/Diary.txt", "utf8");
     let splittedCByLine: string[] = content.split("/");
     let splittedByComma: string[][] = [];
 
